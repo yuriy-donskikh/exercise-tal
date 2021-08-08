@@ -14,6 +14,7 @@ VisualStudio 2019
 
 NodeJs
 
+Angular CLI
 
 ## Build and Start application
 

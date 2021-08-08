@@ -1,0 +1,12 @@
+<div class="row">
+    <ng-container *ngFor="let time of room?.times">
+        <div>
+            <button mat-raised-button class="m-2" [ngClass]="{
+                'bg-info': !time.available, 
+                'text-white': !time.available, 
+                'bg-light': time.available, 
+                'text-black': time.available
+            }" (click)="timeClicked(time)">{{getTime(time)}}</button>
+        </div>
+    </ng-container>
+</div>

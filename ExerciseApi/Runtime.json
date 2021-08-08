@@ -1,0 +1,69 @@
+{
+  "DynamicApi": {
+    "Dependencies": [
+      {
+        "Interface": "ExerciseData.Seeders.Interfaces.ISeeder",
+        "DependencyType": "Transient",
+        "Assemblies": [
+          "ExerciseData"
+        ]
+      },
+      {
+        "DependencyType": "Transient",
+        "Assemblies": [
+          "ExerciseServices"
+        ]
+      },
+      {
+        "Interface": "ExerciseServices.Services.Interfaces.IHelperService",
+        "Type": "ExerciseServices.Services.HelperService, ExerciseServices",
+        "DependencyType": "Transient"
+      }
+    ],
+    "Services": [
+      {
+        "Type": "ExerciseServices.Services.Dynamic.ExerciseService",
+        "Actions": [
+          {
+            "Path": "api/room",
+            "Name": "GetRooms",
+            "NotAuthorize": true,
+            "Http": "GET"
+          },
+          {
+            "Path": "api/room",
+            "Name": "AddRoom",
+            "NotAuthorize": true,
+            "Http": "POST"
+          },
+          {
+            "Path": "api/room/{id:int}",
+            "Name": "DeleteRoom",
+            "NotAuthorize": true,
+            "Http": "Delete"
+          },
+          {
+            "Path": "api/room/{id:int}/available/{time}",
+            "Name": "DeleteTime",
+            "NotAuthorize": true,
+            "Http": "PUT"
+          },
+          {
+            "Path": "api/room/{id:int}/unavailable/{time}",
+            "Name": "AddTime",
+            "NotAuthorize": true,
+            "Http": "PUT"
+          }
+        ]
+      }
+    ],
+    "DbContexts": [
+      {
+        "ConnectionString": "ExerciseConnection",
+        "Assemblies": [
+          "ExerciseData"
+        ]
+      }
+    ]
+  }
+}
